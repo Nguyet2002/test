@@ -48,8 +48,9 @@ export default function Sponsor(props: SponsorProps): JSX.Element {
 
 
   return (
-    <div className="ml-[6px] mt-[8px] h-16 flex flex-col relative">
-      <div className="flex h-full flex-col overflow-hidden">
+    <div className="mt-[8px] h-auto flex flex-col relative ">
+      <span className='text-2xl'>Nhà tài trợ</span>
+      <div className="flex h-full mt-2 ml-[-5px] flex-col overflow-hidden">
         {/* <div ref={scrollRef} className="flex overflow-x-auto scrollbar-hide"> */}
         <div className="flex overflow-x-auto scrollbar-hide">
           {DATA.map((item) => (

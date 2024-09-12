@@ -43,7 +43,6 @@ const HomePage = () => {
       </div>
       {/* Nhà tài trợ */}
       <div className='mx-2 text-2xl font-medium text-[#545353]'>
-        <span>Nhà tài trợ</span>
         <Sponsor />
       </div>
     </div>

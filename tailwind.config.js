@@ -8,7 +8,11 @@ export default {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "registerBanner": "url('/src/assets/img/register/responBanner.png')"
+      },
+    },
   },
   darkMode: "class",
   plugins: [nextui()],

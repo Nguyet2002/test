@@ -17,6 +17,7 @@ import { Route as rootRoute } from './routes/__root'
 // Create Virtual Routes
 
 const RollCallLazyImport = createFileRoute('/roll-call')()
+const RegisterResponLazyImport = createFileRoute('/register-respon')()
 const ProductDetailLazyImport = createFileRoute('/product-detail')()
 const AboutLazyImport = createFileRoute('/about')()
 const IndexLazyImport = createFileRoute('/')()
@@ -27,6 +28,13 @@ const RollCallLazyRoute = RollCallLazyImport.update({
   path: '/roll-call',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/roll-call.lazy').then((d) => d.Route))
+
+const RegisterResponLazyRoute = RegisterResponLazyImport.update({
+  path: '/register-respon',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/register-respon.lazy').then((d) => d.Route),
+)
 
 const ProductDetailLazyRoute = ProductDetailLazyImport.update({
   path: '/product-detail',
@@ -70,6 +78,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductDetailLazyImport
       parentRoute: typeof rootRoute
     }
+    '/register-respon': {
+      id: '/register-respon'
+      path: '/register-respon'
+      fullPath: '/register-respon'
+      preLoaderRoute: typeof RegisterResponLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/roll-call': {
       id: '/roll-call'
       path: '/roll-call'
@@ -86,6 +101,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
   '/about': typeof AboutLazyRoute
   '/product-detail': typeof ProductDetailLazyRoute
+  '/register-respon': typeof RegisterResponLazyRoute
   '/roll-call': typeof RollCallLazyRoute
 }
 
@@ -93,6 +109,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
   '/about': typeof AboutLazyRoute
   '/product-detail': typeof ProductDetailLazyRoute
+  '/register-respon': typeof RegisterResponLazyRoute
   '/roll-call': typeof RollCallLazyRoute
 }
 
@@ -101,15 +118,27 @@ export interface FileRoutesById {
   '/': typeof IndexLazyRoute
   '/about': typeof AboutLazyRoute
   '/product-detail': typeof ProductDetailLazyRoute
+  '/register-respon': typeof RegisterResponLazyRoute
   '/roll-call': typeof RollCallLazyRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/product-detail' | '/roll-call'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/product-detail'
+    | '/register-respon'
+    | '/roll-call'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/product-detail' | '/roll-call'
-  id: '__root__' | '/' | '/about' | '/product-detail' | '/roll-call'
+  to: '/' | '/about' | '/product-detail' | '/register-respon' | '/roll-call'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/product-detail'
+    | '/register-respon'
+    | '/roll-call'
   fileRoutesById: FileRoutesById
 }
 
@@ -117,6 +146,7 @@ export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
   AboutLazyRoute: typeof AboutLazyRoute
   ProductDetailLazyRoute: typeof ProductDetailLazyRoute
+  RegisterResponLazyRoute: typeof RegisterResponLazyRoute
   RollCallLazyRoute: typeof RollCallLazyRoute
 }
 
@@ -124,6 +154,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
   AboutLazyRoute: AboutLazyRoute,
   ProductDetailLazyRoute: ProductDetailLazyRoute,
+  RegisterResponLazyRoute: RegisterResponLazyRoute,
   RollCallLazyRoute: RollCallLazyRoute,
 }
 
@@ -142,6 +173,7 @@ export const routeTree = rootRoute
         "/",
         "/about",
         "/product-detail",
+        "/register-respon",
         "/roll-call"
       ]
     },
@@ -153,6 +185,9 @@ export const routeTree = rootRoute
     },
     "/product-detail": {
       "filePath": "product-detail.lazy.tsx"
+    },
+    "/register-respon": {
+      "filePath": "register-respon.lazy.tsx"
     },
     "/roll-call": {
       "filePath": "roll-call.lazy.tsx"

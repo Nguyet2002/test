@@ -1,10 +1,19 @@
 import ProductCart from '@/mobile-components/elements/e-home/product-cart';
 import banner from '../../assets/img/home/banner.png';
 import ButtonPrimary from '@/mobile-components/shared/button-primary';
+import Sponsor from '@/mobile-components/common/sponsor';
+import Logo from '@/mobile-components/elements/e-logo';
+// import { useNavigate } from '@tanstack/react-router';
 
 const HomePage = () => {
+  // const navigate = useNavigate();
   return (
-    <div className='bg-[#f2f0f0] h-full pb-96'>
+    <div className='bg-[#f2f0f0] h-full pb-12'>
+      {/* Logo */}
+      <div className='w-36 pt-4 pl-4'>
+        <Logo />
+      </div>
+
       {/* Banner */}
       <div className='m-4'>
         <img
@@ -16,6 +25,7 @@ const HomePage = () => {
       {/* Product-cart */}
       <div className='mx-4'>
         <ProductCart
+          // onClick={() => navigate('/product-detail')}
           nameOfClass='Lớp học của CEOSG10'
         />
       </div>
@@ -34,6 +44,7 @@ const HomePage = () => {
       {/* Nhà tài trợ */}
       <div className='mx-2 text-2xl font-medium text-[#545353]'>
         <span>Nhà tài trợ</span>
+        <Sponsor />
       </div>
     </div>
   );

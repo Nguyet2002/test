@@ -7,12 +7,13 @@ import defaultImg from '@/assets/img/home/defaultImg.png';
 export declare interface ProductCartProps {
   nameOfClass?: string;
   title?: string;
+  onClick?: () => void;
 }
 export default function ProductCart(props: ProductCartProps): JSX.Element {
-  const { nameOfClass } = props;
+  const { nameOfClass, onClick } = props;
 
   return (
-    <div>
+    <div onClick={onClick}>
       <span className='font-medium block my-2'>{nameOfClass}</span>
       <div className='bg-white rounded-2xl'>
         <img

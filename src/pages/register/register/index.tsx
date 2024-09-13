@@ -68,7 +68,26 @@ const RegisterPage: React.FC = () => {
               {...register('company', { required: true })}
               placeholder="Công ty"
             />
-            {errors.group && <span className='text-xs text-red-400'>Vui lòng nhập nhóm môn học</span>}
+            {errors.company && <span className='text-xs text-red-400'>Vui lòng nhập tên công ty</span>}
+          </div>
+
+          <div className='mb-6'>
+            <input
+              className='w-full h-10 pl-3 border-b-1 focus-visible:outline-none'
+              type="string"
+              {...register('position', { required: true })}
+              placeholder="Chức vụ"
+            />
+            {errors.position && <span className='text-xs text-red-400'>Vui lòng nhập chức vụ</span>}
+          </div>
+          <div className='mb-6'>
+            <input
+              className='w-full h-10 pl-3 border-b-1 focus-visible:outline-none'
+              type="string"
+              {...register('referralCode', { required: true })}
+              placeholder="Mã giới thiệu"
+            />
+            {errors.referralCode && <span className='text-xs text-red-400'>Vui lòng nhập mã giới thiệu</span>}
           </div>
 
           {/* Đăng ký OA */}
@@ -85,7 +104,7 @@ const RegisterPage: React.FC = () => {
             <ButtonPrimary
               className='w-full mt-10 px-6 py-2 bg-[#FC9A0F] rounded-lg'
               textColor='text-white'
-              children='Điểm danh ngay'
+              children='Đăng ký ngay'
             />
           </div>
           {/* <button type="submit" disabled={submitted}>Điểm danh ngay</button> */}

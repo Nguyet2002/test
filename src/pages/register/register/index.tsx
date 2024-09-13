@@ -1,5 +1,3 @@
-
-
 import ButtonPrimary from '@/mobile-components/shared/button-primary';
 import React from 'react';
 import { useForm } from 'react-hook-form';
@@ -7,11 +5,13 @@ import { useForm } from 'react-hook-form';
 interface FormData {
   fullName: string;
   phoneNumber: number;
-  group: string;
+  company: string;
+  position: string
+  referralCode: string;
   registerOA: boolean;
 }
 
-const RollCallPage: React.FC = () => {
+const RegisterPage: React.FC = () => {
   const {
     register,
     handleSubmit,
@@ -29,8 +29,8 @@ const RollCallPage: React.FC = () => {
     <div className='flex items-center justify-center w-screen h-screen'>
       <form className='w-full px-6' onSubmit={handleSubmit(onSubmit)}>
         <div className='flex flex-col justify-center items-center mb-10'>
-          <span className='text-xl font-bold'>Điểm danh sáng</span>
-          <span className='text-sm text-[#545353]'>Vui lòng điền đúng thông tin để điểm danh</span>
+          <span className='text-xl font-bold'>Đăng ký khóa học</span>
+          <span className='text-sm text-[#545353]'>Vui lòng điền đúng thông tin để đăng ký khóa</span>
         </div>
         <div className='flex flex-col w-full h-auto '>
           {/* Họ và tên */}
@@ -65,8 +65,8 @@ const RollCallPage: React.FC = () => {
             <input
               className='w-full h-10 pl-3 border-b-1 focus-visible:outline-none'
               type="string"
-              {...register('group', { required: true })}
-              placeholder="Nhóm môn học"
+              {...register('company', { required: true })}
+              placeholder="Công ty"
             />
             {errors.group && <span className='text-xs text-red-400'>Vui lòng nhập nhóm môn học</span>}
           </div>
@@ -96,4 +96,4 @@ const RollCallPage: React.FC = () => {
   );
 };
 
-export default RollCallPage;
+export default RegisterPage;

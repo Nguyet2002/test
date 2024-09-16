@@ -8,7 +8,7 @@ const RegisterRespon = () => {
         <Logo title="BỨC PHÁ VƯƠN TẦM" />
       </div>
       <div className="mt-20">
-        <RegisterResponCard status="registerFail"/>
+        <RegisterResponCard status="success"/>
       </div>
       <div className='text-2xl font-medium text-[#545353]'>
         <Sponsor />
